@@ -88,4 +88,25 @@ The details of a specific order can be seen by clicking on the "Details" button,
 
 # User Role
 
+The user role represents a person who would use this application for outsourcing jobs. The user selects jobs from the job offer and creates orders by selecting the appointment.
+
+- Editing user profile: Under the "Home" option, an overview opens to the user where he can edit his data. After editing the set of requested data and confirming the action, a new object of type ApplicationUser is created from the requested data that updates the user data.
+
+- View jobs, view job details, create an order: The "Jobs" option displays the available types of jobs in card form. They are arranged by category, and it is possible to filter the display by category and job type. On each tab, there is a "Details" button that opens a view of details about the selected job. On the details view, you can see additional information about the job, and there is also an option to select the quantity. From this position it is possible to return or continue to create an order.
+On the view of creating an order, there is an option to enter the date and time of the job and any notes on the order. Also, the total quantity and amount of the order is visible. When clicking on the "Create order" button, a new order is created with the status "Published".
+
+![image](https://github.com/MarioBrbot/JobOutsoucer/assets/150728108/fc937f37-2f71-482a-9b31-bab7c0f386c7)
+
+ - Display and conclusion of active orders: The "Active Orders" option displays all user orders that are in the "Published" or "Received" status. In case the order is taken over by the partner, it changes its status to "Taken", and then on this view, the "Completed" button is displayed with each order, by clicking on which the user marks the task as completed and the order changes its status to "Completed". When clicking on the button, the user is also presented with a partner rating form.
+
+![image](https://github.com/MarioBrbot/JobOutsoucer/assets/150728108/ce0917bd-5234-4a22-b473-b1bca8721286)
+
+- View and view details of all user orders: Under the "Order Archive" option, a display of all the user's orders opens in tabular form, filtered by their status. The table shows basic data about orders, such as the order identifier, the total amount of the order, and the column with associated actions. Order details can be viewed by clicking the "Details" button on the order display. It opens a new view where the user can review more information about the order and, if necessary, mark it as done.
+
+
+- Creating and sending requests to the administrator: The "Requests" option opens the display of the form for creating a new request. The required data is the title and content, by clicking the "Send Request" button, a new user request created from the entered data is stored in the request table.
+
+
+
+  
 
