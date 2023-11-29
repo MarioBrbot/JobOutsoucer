@@ -1,0 +1,113 @@
+﻿@page
+@model Job_Outsourcer.Pages.Customer.Active_Orders.ManageOrderModel
+@using Job_Outsourcer.Utility
+@{
+    ViewData["Title"] = "ManageOrder";
+}
+
+<h1 class="text-primary py-3">Aktivne narudžbe</h1>
+<form method="post">
+    @if (Model.orderDetailsVM.Count > 0)
+    {
+        <div class="container row bg-white p-2 border mb-3 rounded">
+
+            @foreach (var item in Model.orderDetailsVM)
+            {
+                <div class="col-12 pb-3 pt-3 mt-4 border  rounded">
+                    <div class="backgroundWhiteBorder10Padding">
+                        <div class="row">
+                            <div class="col-4">
+                                Broj narudžbe : @item.OrderHeader.Id
+                                <ul class="text-info">
+                                
+                                        <li>@item.OrderDetails.Name x @item.OrderDetails.Count</li>
+                                    
+
+                                </ul>
+                            </div>
+                            <div class="col-4 pb-2">
+                                <div class="input-group pb-2">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Termin</span>
+                                    </div>
+                                    <input type="text" class="border rounded form-control" readonly value="@item.OrderHeader.PickUpTime" />
+                                </div>
+                                @{
+                                    var comments = item.OrderHeader.Comments;
+                                    if (comments == null || comments.Trim().Length == 0)
+                                    {
+                                        item.OrderHeader.Comments = "No instructions.";
+                                    }
+                                }
+                                <textarea asp-for="@item.OrderHeader.Comments" readonly class="rounded border form-control" style="width:100%;height:75px;"></textarea>
+                            </div>
+                            <div class="col-3 offset-1 d-flex align-content-center">
+                                <div class="col-12">
+
+
+                                    @if (item.OrderHeader.Status.Equals(StaticDetails.StatusInProcess))
+                                    {
+                                        <button type="button" class="btn btn-success form-control mb-3 ratingModal" data-toggle="modal" data-target="#tips-@item.OrderHeader.Id">
+                                            <i class="fas fa-flag-checkered"></i> &nbsp; Obavljeno
+                                        </button>
+                                        <button type="submit" disabled class="btn btn-info form-control">@item.OrderHeader.Status</button>
+
+
+
+
+
+
+
+                                        <div class="container">
+                                            <div class="title modal " tabindex="-1" id="tips-@item.OrderHeader.Id"
+                                                 data-keyboard="false" data-backdrop="static">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+
+                                                            <button type="button" class="close" data-dismiss="modal">×</button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h3>Ocijenite našeg Partnera:</h3>
+                                                            <br />
+                                                            <div class="form-group col-lg-6">
+                                                                <div class="d-flex align-items-center"  >
+                                                                    @foreach (var rating in Model.ratings)
+                                                                    {
+                                                                        <input style="margin-right: 0.2em;"   type="radio" asp-for="rating" value="@rating" />@rating<br />
+                                                                        <p style="margin-right: 2em;"></p>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+
+                                                                <button type="submit" id="ratingModalButton" class="btn btn-success form-control mb-3" asp-page-handler="OrderReady" asp-route-OrderId="@item.OrderHeader.Id">
+                                                                    <i class="fas fa-flag-checkered"></i> &nbsp; Obavljeno
+                                                                </button>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+
+
+                                        <button type="submit" disabled class="btn btn-info form-control">@item.OrderHeader.Status</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</form>
+
+
+
+

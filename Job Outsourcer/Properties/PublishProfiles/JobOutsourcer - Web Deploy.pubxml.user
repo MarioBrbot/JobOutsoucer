@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfsaGxL7udEGqsr1JvONsHwAAAAACAAAAAAAQZgAAAAEAACAAAADmN37HpsA4MNy38Of/RCSsQJVrh/kj9qCNa2/qfyjHzQAAAAAOgAAAAAIAACAAAACSYy12ZQFI62R3ox4FAYZWdPgE0fyBfzGVnWbirqOA+oAAAABXVTNSF3KrYJBQ3XhhqNEvd4pRrtZG8Fc4LGeRub/dKuQ37m0myhfXeQgeI8+4yCRrHAEzxtWr8//E1VoGVSZtouGVUudZxMYTs2G0mqY0hKufneDU++xo7xB2pzXYE7kLlUQMBRcDwZkBkp+HthPwUz0C8PtzfkxtbVGyL50jFEAAAAAPy2pHOLUxkyd6vIusZnYtyxuXPZTeXWDTM/DmBkyFDhhWxpIyBGOCkNEnKa+D7GXVJIiTrfL9IktzodlfG1aU</EncryptedPassword>
+    <History>True|2021-06-16T17:09:58.4999964Z;True|2021-06-16T19:06:49.7247197+02:00;True|2021-06-16T19:04:18.6336400+02:00;True|2021-06-16T18:48:12.3283898+02:00;True|2021-06-16T18:42:26.4922607+02:00;True|2021-06-16T18:25:59.3089565+02:00;True|2021-06-16T18:23:53.6714449+02:00;False|2021-06-16T18:22:43.5041994+02:00;False|2021-06-16T18:20:46.5587964+02:00;True|2021-06-16T18:18:54.9257959+02:00;True|2021-06-16T18:14:36.9677361+02:00;True|2021-06-16T18:00:04.3074144+02:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:joboutsourcerdbserver.database.windows.net,1433%3bInitial Catalog=Job Outsourcer_db%3bUser Id=adminuser%40joboutsourcerdbserver%3bPassword=Administrator1!</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Job_Outsourcer.DataAccess.ApplicationDbContext">
+      <Value>Data Source=tcp:joboutsourcerdbserver.database.windows.net,1433%3bInitial Catalog=Job Outsourcer_db%3bUser Id=adminuser%40joboutsourcerdbserver%3bPassword=Administrator1!</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

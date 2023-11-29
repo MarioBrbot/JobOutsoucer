@@ -1,0 +1,163 @@
+﻿@page
+@model Job_Outsourcer.Pages.Admin.Order.OrderDetailsModel
+@using Job_Outsourcer.Utility
+@{
+    ViewData["Title"] = "OrderDetails";
+}
+
+<form method="post">
+    <div class="border ml-1 backgroundWhite mt-4">
+        <div class="row pb-1">
+            <div class="col-12 col-md-6 ">
+                <p class="h2  text-primary">Detalji narudžbe</p>
+            </div>
+            <div class="col-12 col-md-4 offset-md-2">
+                <a asp-page="/Admin/Order/OrderList" class="btn btn-success form-control">Povratak na listu narudžbi </a>
+            </div>
+        </div>
+        <hr />
+        <div class="row pt-2">
+            <div class="col-lg-8 col-12" style="border-right:1px solid #bbb9b9">
+                <input type="hidden" asp-for="OrderDetailsVM.OrderHeader.Id" />
+                <div class="form-group row">
+                    <div class="col-md-3 col-12 text-primary">
+                        <label><label asp-for="OrderDetailsVM.ApplicationUser.FullName"></label></label>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <input placeholder="--Ime partnera kada preuzme posao--" asp-for="OrderDetailsVM.ApplicationUser.FullName" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3 col-12 text-primary">
+                        <label><label asp-for="OrderDetailsVM.ApplicationUser.Email"></label></label>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <input placeholder="--Email partnera kada preuzme posao--" asp-for="OrderDetailsVM.ApplicationUser.Email" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3 col-12 text-primary">
+                        <label><label asp-for="OrderDetailsVM.ApplicationUser.PhoneNumber"></label></label>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <input placeholder="--Kontakt broj partnera kada preuzme posao--" asp-for="OrderDetailsVM.ApplicationUser.PhoneNumber" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3 col-12 text-primary">
+                        <label><label asp-for="OrderDetailsVM.OrderHeader.OrderTotal"></label></label>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <input asp-for="OrderDetailsVM.OrderHeader.OrderTotal" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3 col-12 text-primary">
+                        <label><label asp-for="OrderDetailsVM.OrderHeader.OrderDate"></label></label>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <input value="@Model.OrderDetailsVM.OrderHeader.PickUpTime.ToShortDateString() @Model.OrderDetailsVM.OrderHeader.PickUpTime.ToShortTimeString()" disabled class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3 col-12 text-primary">
+                        <label><label asp-for="OrderDetailsVM.OrderHeader.Comments"></label></label>
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <input asp-for="OrderDetailsVM.OrderHeader.Comments" disabled class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <h4 class="d-flex justify-content-between align-content-center mb-3">
+                    <span class="text-muted">ID narudžbe: </span>
+                    <span class="badge badge-secondary badge-pill">@Model.OrderDetailsVM.OrderHeader.Id</span>
+                </h4>
+                <ul class="list-group mb-3">
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div>
+                            <h6 class="my-0">@Model.OrderDetailsVM.OrderDetails.Name</h6>
+                            <small class="text-muted">Količina : @Model.OrderDetailsVM.OrderDetails.Count</small>
+                        </div>
+                        <span class="text-muted">@(Model.OrderDetailsVM.OrderDetails.Price * Model.OrderDetailsVM.OrderDetails.Count) KN</span>
+                    </li>
+
+
+
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <span class="text-info"> Total </span>
+                        <strong class="text-info">@Model.OrderDetailsVM.OrderHeader.OrderTotal KN</strong>
+                    </li>
+
+                </ul>
+
+                @if (Model.OrderDetailsVM.OrderHeader.Status.Equals(StaticDetails.StatusInProcess) && (User.IsInRole(StaticDetails.Admin)))
+                {
+
+                    <button type="button" class="btn btn-success form-control mb-3 ratingModal" data-toggle="modal" data-target="#tips-@Model.OrderDetailsVM.OrderHeader.Id">
+                        <i class="fas fa-flag-checkered"></i> &nbsp; Obavljeno
+                    </button>
+                    <button type="submit" disabled class="btn btn-info form-control">@Model.OrderDetailsVM.OrderHeader.Status</button>
+
+
+                    <div class="container">
+                        <div class="title modal " tabindex="-1" id="tips-@Model.OrderDetailsVM.OrderHeader.Id"
+                             data-keyboard="false" data-backdrop="static">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <button type="button" class="close" data-dismiss="modal">×</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h3>Ocijenite našeg Partnera:</h3>
+                                        <br />
+                                        <div class="form-group col-lg-6">
+                                            <div class="d-flex justify-content-between">
+                                                @foreach (var rating in Model.ratings)
+                                                {
+                                                    <input type="radio" asp-for="rating" value="@rating" />@rating<br />
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+
+                                            <button type="submit" id="ratingModalButton" class="btn btn-success form-control mb-3"  asp-page-handler="OrderReady" asp-route-OrderId="@Model.OrderDetailsVM.OrderHeader.Id">
+                                                <i class="fas fa-flag-checkered"></i> &nbsp; Obavljeno
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+
+
+                    <button type="submit" disabled class="btn btn-info form-control">@Model.OrderDetailsVM.OrderHeader.Status</button>
+                }
+                @if ((User.IsInRole(StaticDetails.Admin))
+                           && (Model.OrderDetailsVM.OrderHeader.Status.Equals(StaticDetails.StatusSubmitted)
+                           || Model.OrderDetailsVM.OrderHeader.Status.Equals(StaticDetails.StatusReady)
+                           || Model.OrderDetailsVM.OrderHeader.Status.Equals(StaticDetails.StatusInProcess)))
+                {
+                    
+
+                       
+                            <button type="submit" class="btn btn-danger form-control" style="width:100%; margin-top:1em;" asp-page-handler="OrderRefund" asp-route-OrderId="@Model.OrderDetailsVM.OrderHeader.Id"><i class="fas fa-times"></i> Refundiraj</button>
+                       
+                  
+
+
+                }
+
+
+            </div>
+
+        </div>
+    </div>
+</form>

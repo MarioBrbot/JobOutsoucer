@@ -1,0 +1,113 @@
+﻿@page
+@model Job_Outsourcer.Pages.Admin.Home.IndexModel
+@using Job_Outsourcer.Utility
+@{
+    ViewData["Title"] = "Register";
+}
+<form method="post" autocomplete="off" asp-route-returnUrl="@Model.ReturnUrl">
+    <div class="py-4 my-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row form-group">
+            <div class="col-8 offset-2">
+                <div class="card">
+
+                    <div class="card-body px-lg-5 pt-4">
+                        <h3 class="col-12 text-success text-center py-4"><strong>Registracija Admina</strong></h3>
+                        <hr />
+                        <div class="form-row py-2">
+                            <div class="col">
+                                <div>
+                                    <input type="text" asp-for="Input.FirstName" autocomplete="off" placeholder="Ime" class="form-control" />
+                                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div>
+                                    <input type="text" asp-for="Input.LastName" autocomplete="off" placeholder="Prezime" class="form-control" />
+                                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="py-2">
+                            <input type="email" asp-for="Input.Email" autocomplete="off" placeholder="Email" class="form-control" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="py-2">
+                            <input type="text" asp-for="Input.PhoneNumber" autocomplete="off" placeholder="Kontakt broj" class="form-control" />
+                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="py-2">
+                            <input type="password" asp-for="Input.Password" autocomplete="off" placeholder="Lozinka" class="form-control" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="py-2">
+                            <input type="password" asp-for="Input.ConfirmPassword" autocomplete="off" placeholder="Potvrdi lozinku" class="form-control" />
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="py-2">
+                            <button type="button" class="btn btn-success form-control mb-3 ratingModal" data-toggle="modal" data-target="#modal">
+                                Registracija
+                            </button>
+                        </div>
+                      
+
+
+                        <div class="container">
+                            <div class="title modal " tabindex="-1" id="modal"
+                                 data-keyboard="false" data-backdrop="static">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+
+                                            <button type="button" class="close" data-dismiss="modal">×</button>
+                                        </div>
+                                        <div class="modal-body" style="text-align: center; ">
+                                            <h3>Podaci su poslani.</h3>
+                                            <br />
+
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-success form-control" data-toggle="modal" data-target="#modal">U redu</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+
+
+
+
+
+                        <hr />
+                        <p>
+                            Klikom na <em>Registracija</em> prihvaćate naše <a href="" target="_blank"> uvjete usluge</a>
+                        </p>
+
+                    </div>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+ 
+
+}

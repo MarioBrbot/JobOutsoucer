@@ -1,0 +1,69 @@
+﻿@page
+@model Job_Outsourcer.Pages.Partner.Jobs_Archive.OrderListModel
+@{
+    ViewData["Title"] = "OrderList";
+}
+
+
+@{
+    var status = HttpContext.Request.Query["status"];
+    var refundiran = "text-primary";
+   
+    var preuzet = "text-primary";
+    var obavljen = "text-primary";
+
+    if (status == "refundiran")
+    {
+        refundiran = "active text-white";
+    }
+    else
+    {
+        if (status == "obavljen")
+        {
+            obavljen = "active text-white";
+        }
+        else
+        {
+            preuzet = "active text-white";
+        }
+    }
+
+}
+
+
+
+<div class="border backgroundWhite container">
+    <div class="d-flex justify-content-between mb-3">
+        <div class="p-2">
+            <h2 class="text-primary">Arhiva poslova</h2>
+        </div>
+        <div class="p-2">
+            <ul class="list-group list-group-horizontal-sm">
+                <a style="text-decoration:none;" asp-page="OrderList" asp-route-status="refundiran">
+                    <li class="list-group-item @refundiran"> Refundiran </li>
+                </a>
+             
+                <a style="text-decoration:none;" asp-page="OrderList" asp-route-status="preuzet">
+                    <li class="list-group-item @preuzet"> Preuzet </li>
+                </a>
+                <a style="text-decoration:none;" asp-page="OrderList" asp-route-status="obavljen">
+                    <li class="list-group-item @obavljen"> Obavljen </li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <br /><br />
+    <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID narudžbe</th>
+                <th>Suma narudžbe</th>
+                <th>Akcije</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/js/partnerOrderAcrhive.js"></script>
+}

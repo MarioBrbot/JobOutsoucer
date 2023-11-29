@@ -1,0 +1,18 @@
+﻿@page
+@model Job_Outsourcer.Pages.Customer.Jobs.OrderConfirmationModel
+@{
+    ViewData["Title"] = "OrderConfirmation";
+}
+
+<div class="container row">
+    <div class="col-12 text-center">
+        <h1 class="text-primary text-center">Narudžba uspješno obavljena</h1>
+        Broj narudžbe jest: @Model.orderId <br /><br />
+        <img src="~/images/Blog-Image-4-1-1024x640.jpg" width="65%" />
+    </div>
+    <div class="col-12 text-center" style="color:maroon">
+        <br />
+        Vaša narudžba je uspješno postavljena!<br />
+        Uživajte dok netko drugi obavlja Vaš posao!
+    </div>
+</div>

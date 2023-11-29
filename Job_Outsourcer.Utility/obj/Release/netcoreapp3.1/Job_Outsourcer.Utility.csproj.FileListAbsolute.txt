@@ -1,0 +1,9 @@
+C:\Users\Mario\Desktop\Job Outsourcer\Job Outsourcer\Job_Outsourcer.Utility\bin\Release\netcoreapp3.1\Job_Outsourcer.Utility.deps.json
+C:\Users\Mario\Desktop\Job Outsourcer\Job Outsourcer\Job_Outsourcer.Utility\bin\Release\netcoreapp3.1\Job_Outsourcer.Utility.dll
+C:\Users\Mario\Desktop\Job Outsourcer\Job Outsourcer\Job_Outsourcer.Utility\bin\Release\netcoreapp3.1\Job_Outsourcer.Utility.pdb
+C:\Users\Mario\Desktop\Job Outsourcer\Job Outsourcer\Job_Outsourcer.Utility\obj\Release\netcoreapp3.1\Job_Outsourcer.Utility.csprojAssemblyReference.cache
+C:\Users\Mario\Desktop\Job Outsourcer\Job Outsourcer\Job_Outsourcer.Utility\obj\Release\netcoreapp3.1\Job_Outsourcer.Utility.AssemblyInfoInputs.cache
+C:\Users\Mario\Desktop\Job Outsourcer\Job Outsourcer\Job_Outsourcer.Utility\obj\Release\netcoreapp3.1\Job_Outsourcer.Utility.AssemblyInfo.cs
+C:\Users\Mario\Desktop\Job Outsourcer\Job Outsourcer\Job_Outsourcer.Utility\obj\Release\netcoreapp3.1\Job_Outsourcer.Utility.csproj.CoreCompileInputs.cache
+C:\Users\Mario\Desktop\Job Outsourcer\Job Outsourcer\Job_Outsourcer.Utility\obj\Release\netcoreapp3.1\Job_Outsourcer.Utility.dll
+C:\Users\Mario\Desktop\Job Outsourcer\Job Outsourcer\Job_Outsourcer.Utility\obj\Release\netcoreapp3.1\Job_Outsourcer.Utility.pdb

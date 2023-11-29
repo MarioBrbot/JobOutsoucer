@@ -1,0 +1,49 @@
+﻿@page
+@model Job_Outsourcer.Pages.Partner.Jobs.IndexModel
+@using Job_Outsourcer.Utility
+@{
+}
+
+
+
+
+
+<div class="border backgroundWhite container">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-primary">Popis aktivnih poslova</h2>
+        </div>
+    </div>
+    <br/>
+    <div class="container">
+        <form class="" id="FilterForm" method="post" asp-page-handler="FilterGenerated">
+            <div class="row">
+                <div class="col-sm">
+                    <label asp-for=" SelectedCounty"></label>
+                    <select class="form-control mb-1" asp-for="SelectedCounty"
+                            asp-items="@Model.CountyListFilter" onchange="this.form.submit()"></select>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+    <br /><br />
+    <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Županija</th>
+                <th>Adresa</th>
+                <th>Vrijeme obavljanja</th>
+                <th>Naziv</th>
+                <th>Količina</th>
+                <th>Akcije</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/partnerJobs.js" charset="utf-8"></script>
+}

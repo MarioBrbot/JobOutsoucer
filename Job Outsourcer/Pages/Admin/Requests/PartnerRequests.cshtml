@@ -1,0 +1,40 @@
+﻿@page
+@model Job_Outsourcer.Pages.Admin.Requests.PartnerRequestsModel
+@using Job_Outsourcer.Utility
+@{
+}
+
+
+@if (User.IsInRole(StaticDetails.Admin))
+{
+    <div class="border backgroundWhite container">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="text-primary">Lista partnerskih zahtjeva</h2>
+            </div>
+
+        </div>
+        <br /><br />
+        <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Naslov</th>
+                    <th>Ime i Prezime</th>
+                    <th>Status</th>
+                    <th>Akcije</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+}
+else
+{
+    <div>
+        <h1 class="text-danger"> Nedopušten pristup</h1>
+    </div>
+}
+
+@section Scripts{
+    <script src="~/js/requestPartner.js"></script>
+}

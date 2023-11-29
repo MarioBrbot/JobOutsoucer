@@ -1,0 +1,70 @@
+﻿@page
+@model Job_Outsourcer.Pages.Customer.Jobs.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+    <form class="" id="FilterForm" method="post" asp-page-handler="FilterGenerated">
+        <div class="row">
+            <div class="col-sm">
+                <label asp-for=" SelectedCategory"></label>
+                <select class="form-control mb-1" asp-for="SelectedCategory"
+                        asp-items="@Model.CategoryListFilter" onchange="this.form.submit()"></select>
+            </div>
+            <div class="col-sm">
+                <label asp-for=" SelectedJobType"></label>
+                <select class="form-control mb-1" asp-for="SelectedJobType"
+                        asp-items="@Model.JobTypeListFilter" onchange="this.form.submit()"></select>
+            </div>
+           
+        </div>
+        </form>
+</div>
+
+
+
+
+
+
+@foreach (var category in Model.GeneratedDetail)
+{
+    @if (Model.JobItemList.Where(c => c.JobType.CategoryId == category.Id).Count() > 0)
+    {
+        <div class="row container pb-3 backgroundWhite">
+            <div class="col-12">
+                <div class="row">
+                    <h2 class="text-success pl-1"><b>@category.Name</b></h2>
+
+                    <div class="col-12">
+                        <div class="row my-3">
+                            @foreach (var jobItem in Model.JobItemList.Where(c => c.JobType.CategoryId == category.Id))
+                            {
+                                <div class="col-lg-3 col-xl-3 col-md-6 pb-4 ">
+                                    <div class="card h-100" style="border:2px solid #008cba; border-radius: 5px; ">
+                                        <div class="pl-3 pt-1 text-center">
+                                            <h3 class="card-title  text-primary"  style=" font-size: 85%;"><b>@jobItem.Name</b></h3>
+                                        </div>
+                                        <div class="d-flex justify-content-between form-control" style="border:0px;">
+                                            <div class="col-6 badge badge-warning text-center " style="  font-size: 85%;">
+       
+                                                Cijena po satu:
+                                            </div>
+                                            <div class="col-6  text-right h5" style="color:maroon;">@jobItem.Price KN</div>
+                                        </div>
+                                        <img src="@jobItem.Image" class="card-img-top p-2 rounded jobsImages " style="margin-bottom: 2em; " />
+
+                                        <a asp-page="Details" class="btn btn-primary " style="border-radius:2px; bottom:0; position:absolute; width:100%; " asp-route-id="@jobItem.Id">Detalji</a>
+
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+}
