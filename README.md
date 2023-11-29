@@ -1,4 +1,4 @@
-# JobOutsoucer - General Information
+# Job Outsoucer - General Information
 Job Outsourcing Application
 
 Technologies used: .NET, C#, ASP.NET, Razor Pages, SQL Server, Javascript, HTML, CSS
@@ -63,4 +63,29 @@ Requests can be viewed by clicking the "View" button on the partner requests vie
 
 
   # Partner Role
+
+The partner role represents a person who would use this application for employment and financial gain. The partner selects a job from the offer of published jobs to which he has rights and executes it.
+
+- Edit profile and view current rights: Under the "Home" option, an overview opens for the partner where he can edit his data. After editing the set of requested data and confirming the action, a new object of type ApplicationUser is created from the requested data that updates the user data. Under the form for editing the profile, the partner has a tabular representation of job types with information on current rights, on the basis of which he can request additional rights from the administrator along with evidence.
+
+ - Display of published orders, download of orders: The "Jobs" option provides a tabular display of published orders to which the partner has rights. In the tabular display, you can see some basic details about the order, such as the county, address, time of execution, name of the job, amount of work, and a column with associated actions.
+
+   ![image](https://github.com/MarioBrbot/JobOutsoucer/assets/150728108/f07cba3c-a3d9-41d4-ba68-5903230d3b24)
+
+The details of a specific order can be seen by clicking on the "Details" button, which opens a new view where we have additional information about the order, such as the name, total price, description, user name, address and contact number. On the display there is an option to return and an option to accept the order. By clicking on the option to accept the order, it is assigned to the partner and the status changes to "Taken".
+
+- Display of active partner orders: The "Active Orders" option displays all received partner orders with the status "Received". The display is in an overview card form that contains information about the order number, name and amount of work, address, date and order note.
+
+![image](https://github.com/MarioBrbot/JobOutsoucer/assets/150728108/25d4be2d-fac6-4ea6-a46f-8abc4b0d1c09)
+
+- View and view details of all partner orders: Under the "Job Archive" option, a display of all the partner's orders opens in tabular form, filtered by their status. The table shows some basic data about orders, such as the order identifier, the total amount of the order, and a column with associated actions. Order details can be viewed by clicking the "Details" button on the order display. It opens a new view where the partner can view more information about the order.
+
+ ![image](https://github.com/MarioBrbot/JobOutsoucer/assets/150728108/5cfa282e-3681-4333-9473-c47503ba26cb)
+
+- Creating and sending requests to the administrator: Under the "Requests" option, there is a display of the form for creating a new request. The requested information is the title and content, as well as the document that the partner submits. By clicking on the "Send Request" button, a new partner request created from the entered data is stored in the request table.
+
+
+
+# User Role
+
 
