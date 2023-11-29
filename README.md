@@ -11,17 +11,17 @@ The application contains a total of three roles: administrator, user and partner
 
 The Administrator role represents the coordinator of the application, the person with the greatest and most important capabilities. The administrator creates new jobs and all accompanying data types, handles partners and users, their requests, and has final insight into orders. 
 
-- Administrator registration: Under the "Naslovna" option, a view opens to the administrator where he can register new administrators. After entering a set of required data (name, surname, e-mail, contact number, password) and confirming the registration from the required data, a new object of type ApplicationUser is created, which is stored in the user table, and a new record is created in the table that connects roles and users .
+- Administrator registration: Under the "Home" option, a view opens to the administrator where he can register new administrators. After entering a set of required data (name, surname, e-mail, contact number, password) and confirming the registration from the required data, a new object of type ApplicationUser is created, which is stored in the user table, and a new record is created in the table that connects roles and users .
 
-- View, edit, delete and add categories: Under the "Admistracija" option, we have a submenu where, by selecting "Kategorije", we get to the display of existing categories in tabular form. In the table, we have a display of some basic data, such as the name and order of display (for users) and a column with associated actions.
+- View, edit, delete and add categories: Under the "Administration" option, we have a submenu where, by selecting "Categories", we get to the display of existing categories in tabular form. In the table, we have a display of some basic data, such as the name and order of display (for users) and a column with associated actions.
 
   ![image](https://github.com/MarioBrbot/JobOutsoucer/assets/150728108/e23f999e-a2de-4ce4-a440-f8ee35d7c098)
 
-New categories can be added by clicking the "Dodaj Kategoriju" button on the category view. It opens a new view where information about the name of the new category and the desired number of views is entered into the form. From the entered data, a new category object is stored in the category table.
-Categories can be edited by clicking the "Uredi" button on the category view. It opens a new view in which we can edit the loaded data and thus update that record in the database.
-Categories can be deleted by clicking on the "Obriši" button on the category view, thus there is a possibility to delete records about the desired category. A warning dialog is displayed in which it is necessary to confirm or reject the category deletion procedure.
+New categories can be added by clicking the "Add Category" button on the category view. It opens a new view where information about the name of the new category and the desired number of views is entered into the form. From the entered data, a new category object is stored in the category table.
+Categories can be edited by clicking the "Edit" button on the category view. It opens a new view in which we can edit the loaded data and thus update that record in the database.
+Categories can be deleted by clicking on the "Delete" button on the category view, thus there is a possibility to delete records about the desired category. A warning dialog is displayed in which it is necessary to confirm or reject the category deletion procedure.
 
-- Display, edit and delete job types: By selecting the "Tipovi posla" option on the administration sub-menu, the existing job types are displayed in tabular form. In the table there is a display of some basic data such as the name, the corresponding category, and there is also a column with the corresponding actions.
+- Display, edit and delete job types: By selecting the "Job Types" option on the administration sub-menu, the existing job types are displayed in tabular form. In the table there is a display of some basic data such as the name, the corresponding category, and there is also a column with the corresponding actions.
 
 ![image](https://github.com/MarioBrbot/JobOutsoucer/assets/150728108/d503e672-7be8-4d4a-b496-a4afe134e39e)
 
